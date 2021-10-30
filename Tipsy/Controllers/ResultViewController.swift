@@ -9,16 +9,26 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-    @IBOutlet weak var settingLabel: UILabel!
+    var calculatedBill: String?
+    var tipPercentage: String?
+    var splitPerson: String?
     
+    @IBOutlet weak var settingLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        totalLabel.text = calculatedBill ?? "0"
+        settingLabel.text = "Split between " + (splitPerson ?? "2") + " ,with " + (tipPercentage ?? "%20") + " tip."
+        
+        
     }
     
     @IBAction func recalculatePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+            
         
     }
     
